@@ -1,0 +1,18 @@
+# Subversion #
+##############
+.svn/
+
+# IDE generated files #
+#######################
+*.project
+*.classpath
+*.nbproject
+*.settings
+target/
+bin/
+
+# OS generated files #
+######################
+.DS_Store*
+Icon?
+Thumbs.db

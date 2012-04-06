@@ -15,8 +15,6 @@ package com.byktol.jcr.qb.criteria.builder.xpath;
 
 import com.byktol.jcr.qb.criteria.Criterion;
 import com.byktol.jcr.qb.criteria.builder.Context;
-import com.byktol.jcr.qb.criteria.builder.Sql2CriterionBuilder;
-import com.byktol.jcr.qb.criteria.builder.SqlCriterionBuilder;
 import com.byktol.jcr.qb.criteria.builder.XPathCriterionBuilder;
 import com.byktol.jcr.qb.criteria.builder.utils.XPathUtils;
 import com.byktol.jcr.qb.criteria.expressions.ContainsExpression;
@@ -28,7 +26,7 @@ import com.byktol.jcr.qb.criteria.expressions.ContainsExpression;
  * @author Victor Alvarez
  */
 public class ContainsExpressionBuilder
-  implements XPathCriterionBuilder, SqlCriterionBuilder, Sql2CriterionBuilder
+  implements XPathCriterionBuilder
 {
 
   /*
@@ -45,38 +43,6 @@ public class ContainsExpressionBuilder
     return String.format(
       "jcr:contains(%s, '%s')",
       XPathUtils.prependSymbol(ce.getPropertyName()), ce.getValue()
-    );
-  }
-
-  /* (non-Javadoc)
-   * @see SqlCriterionBuilder#buildSql(Criterion, Context)
-   */
-  @Override
-  public final String buildSql(final Criterion criterion, final Context context)
-  {
-    final ContainsExpression ce = (ContainsExpression) criterion;
-
-    return String.format(
-      "contains(%s, '%s'",
-      ce.getPropertyName(),
-      ce.getValue()
-    );
-  }
-
-  /* (non-Javadoc)
-   * @see Sql2CriterionBuilder#buildSql2(Criterion, Context)
-   */
-  @Override
-  public final String buildSql2(
-    final Criterion criterion,
-    final Context context)
-  {
-    final ContainsExpression ce = (ContainsExpression) criterion;
-
-    return String.format(
-      "contains([%s], '%s')",
-      ce.getPropertyName(),
-      ce.getValue()
     );
   }
 

@@ -3,7 +3,7 @@ This is an experimental query builder for the Java Content Repository technology
 
 This project is not affiliated in any way to Adobe or Day Software, but if you're a client of their CMS platform, you may be interested in their own [Query Builder](http://dev.day.com/docs/en/cq/current/javadoc/com/day/cq/search/QueryBuilder.html).
 
-It's still under development so things are not supposed to work flawlessly just yet.
+This project is still under development so things are not supposed to work flawlessly just yet.
 
 ## Examples
     Criteria criteria = ... //not implemented yet;
@@ -27,7 +27,7 @@ It's still under development so things are not supposed to work flawlessly just 
     criteria.setNodeType("nt:unstructured");
     criteria.add(Restrictions.exists("description"));
     criteria.add(
-    Restrictions.or(
+        Restrictions.or(
             Restrictions.contains("title", "JCR"),
             Restrictions.contains("title", "query builder")
         )

@@ -16,6 +16,7 @@ package com.byktol.jcr.qb.criteria.operators;
 /**
  * The logical operators used to connect Restrictions together.
  *
+ * @since 1.0
  * @author Victor Alvarez
  */
 public enum LogicalOperator {

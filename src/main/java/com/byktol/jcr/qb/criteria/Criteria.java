@@ -17,8 +17,8 @@ package com.byktol.jcr.qb.criteria;
  * Defines the parameters and filters to narrow a query down, i.e. what goes
  * into a query. Its purpose is to build the query, but not execute it.
  *
- * @see Restrictions
- * @see Order
+ * @see Restrictions To create different {@link Criterion} types.
+ * @see Order For ordering information.
  *
  * @since 1.0
  * @author Victor Alvarez
@@ -29,30 +29,41 @@ public interface Criteria
   /**
    * Adds a single {@link Criterion} to the query.
    *
-   * @param criterion The criterion being added to the query
+   * @param criterion
+   *          The criterion being added to the query
    * @return The current {@link Criteria} to enable chaining
    */
-  Criteria add(Criterion criterion);
+  Criteria add(final Criterion criterion);
 
   /**
    * Adds a single {@link Order} to the query.
    *
-   * @param order The order being added to the query
+   * @param order
+   *          The order being added to the query
    * @return The current {@link Criteria} to enable chaining
    */
-  Criteria addOrder(Order order);
+  Criteria addOrder(final Order order);
 
   /**
-   * @param path The path used to narrow down the search in the hierarchy
+   * @param path
+   *          The path used to narrow down the search in the hierarchy
    * @return The current {@link Criteria} to enable chaining
    */
-  Criteria setPath(String path);
+  Criteria setPath(final String path);
 
   /**
-   * @param nodeType The node type use to narrow the search, e.g. cq:PageContent
+   * @param nodeName
+   *          The name of the node being queried.
    * @return The current {@link Criteria} to enable chaining
    */
-  Criteria setNodeType(String nodeType);
+  Criteria setNodeName(final String nodeName);
+
+  /**
+   * @param nodeType
+   *          The node type use to narrow the search, e.g. nt:unstructured
+   * @return The current {@link Criteria} to enable chaining
+   */
+  Criteria setNodeType(final String nodeType);
 
   /**
    * Builds the query based on {@link Restrictions} and {@link Order}.
@@ -62,10 +73,11 @@ public interface Criteria
   String buildQuery();
 
   /**
-   * @param limit The number of results to return for the query
+   * @param limit
+   *          The number of results to return for the query
    * @return The current {@link Criteria} to enable chaining
    */
-  Criteria setLimit(long limit);
+  Criteria setLimit(final long limit);
 
   /**
    * @return The number of results to return
@@ -73,10 +85,11 @@ public interface Criteria
   long getLimit();
 
   /**
-   * @param offset The number indicating where to start the fetch
+   * @param offset
+   *          The number indicating where to start the fetch
    * @return The current {@link Criteria} to enable chaining
    */
-  Criteria setOffset(long offset);
+  Criteria setOffset(final long offset);
 
   /**
    * @return The offset number

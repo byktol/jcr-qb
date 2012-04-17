@@ -32,8 +32,10 @@ import com.google.common.base.Strings;
 public abstract class CriteriaImpl
   implements Criteria, Prop
 {
+
   private final List<Criterion> criterion;
   private final List<Order> orders;
+  private String nodeName;
   private String nodeType;
   private String path;
   private long limit;
@@ -196,4 +198,21 @@ public abstract class CriteriaImpl
     return this;
   }
 
+  /**
+   * @return the nodeName
+   */
+  public String getNodeName()
+  {
+    return nodeName;
+  }
+
+  /**
+   * @param nodeName
+   *          The nodeName to set
+   */
+  public Criteria setNodeName(final String nodeName)
+  {
+    this.nodeName = Strings.nullToEmpty(nodeName);
+    return this;
+  }
 }

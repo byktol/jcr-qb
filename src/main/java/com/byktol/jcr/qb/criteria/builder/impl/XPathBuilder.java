@@ -23,6 +23,7 @@ import com.byktol.jcr.qb.criteria.builder.xpath.JackrabbitContext;
 import com.byktol.jcr.qb.criteria.builder.xpath.OrderBuilder;
 import com.byktol.jcr.qb.criteria.operators.LogicalOperator;
 import com.google.common.base.Joiner;
+import com.google.common.base.Strings;
 
 /**
  * Specific builder specializing on XPath queries.
@@ -56,7 +57,7 @@ public class XPathBuilder
       String.format(
         "/jcr:root%s//element(%s)",
         criteria.getPath(),
-        buildNodeType(criteria.getNodeType())
+        buildElementTest()
       )
     );
 
@@ -82,24 +83,39 @@ public class XPathBuilder
 
     if (criteria.getOrders().size() > 0) {
       xpath.append(" order by ");
-      xpath.append(Joiner.on(", ").skipNulls().join(new OrderBuilder().build(criteria.getOrders())));
+      xpath.append(
+        Joiner.on(", ").skipNulls().join(
+          new OrderBuilder().build(criteria.getOrders())
+        )
+      );
     }
 
     return xpath.toString();
   }
 
   /**
-   * In XPath, the node type defined must be appended to &quot;*,&quot;, as in
-   * &quot;*,nt:base&quot;.
+   * In XPath, the element test is defined by "element(nodeName, nodeType)".
+   * This gives us up to four possible combinations based onf what is specified:
+   * <ol>
+   *  <li>nodeName and nodeType not defined: element(*)</li>
+   *  <li>nodeName defined, and nodeType not defined: element(nodeName)</li>
+   *  <li>nodeName not defined, and nodeType defined: element(*,nodeType)</li>
+   *  <li>nodeName and nodeType defined: element(nodeName,nodeType)</li>
+   * </ol>
    *
-   * @param nodeType The node type used for the query
-   * @return Either &quot;*&quot; or &quot;*,nodeType&quot;
+   * @return The XPath element test.
    */
-  protected String buildNodeType(final String nodeType) {
-    String nt = "*";
+  protected final String buildElementTest() {
+    String nt = criteria.getNodeName();
 
-    if ( !(nodeType == null || nodeType.isEmpty()) ) {
-      nt += "," + nodeType;
+    if (Strings.isNullOrEmpty(criteria.getNodeName()))
+    {
+      nt = "*";
+    }
+
+    if (!Strings.isNullOrEmpty(criteria.getNodeType()))
+    {
+      nt += "," + criteria.getNodeType();
     }
 
     return nt;

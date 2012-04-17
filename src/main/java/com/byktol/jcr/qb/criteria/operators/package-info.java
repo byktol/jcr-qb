@@ -12,6 +12,7 @@
  * limitations under the License.
  */
 /**
+ * The operators used to constrain properties.
  *
  * @since 1.0
  * @author Victor Alvarez

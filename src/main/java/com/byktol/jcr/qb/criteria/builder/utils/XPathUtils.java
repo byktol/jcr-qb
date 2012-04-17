@@ -95,10 +95,7 @@ public final class XPathUtils
     if (value instanceof String)
     {
 
-      return String.format(
-        "'%s'",
-        ((String) value).replaceAll("'", "''").replaceAll("\"", "\"\"")
-      );
+      return StringUtils.escapeString((String) value);
 
     } else if (value instanceof Calendar)
     {

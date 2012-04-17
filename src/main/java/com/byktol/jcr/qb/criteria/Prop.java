@@ -22,22 +22,27 @@ import java.util.List;
 public interface Prop {
 
   /**
-   * @return the list of {@link Restrictions} used in building the query
+   * @return The list of {@link Criterion} used in building the query
    */
   List<Criterion> getCriterion();
 
   /**
-   * @return the list of {@link Order} used in building the query
+   * @return The list of {@link Order} used in building the query
    */
   List<Order> getOrders();
 
   /**
-   * @return the nodeType being used in building the query or an empty string
+   * @return The name of the node being queried.
+   */
+  String getNodeName();
+
+  /**
+   * @return The node type being used in building the query or an empty string
    */
   String getNodeType();
 
   /**
-   * @return the path used to narrow the search or an empty string
+   * @return The path used to narrow the search or an empty string
    */
   String getPath();
 }

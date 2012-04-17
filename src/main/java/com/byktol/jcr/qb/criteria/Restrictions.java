@@ -228,7 +228,8 @@ public final class Restrictions
    *
    * @return A new conjunction.
    */
-  public static Junction conjunction() {
+  public static Junction conjunction()
+  {
     return new Junction(LogicalOperator.AND);
   }
 

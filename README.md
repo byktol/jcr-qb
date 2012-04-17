@@ -28,13 +28,13 @@ It's still under development so things are not supposed to work flawlessly just 
     criteria.add(Restrictions.exists("description"));
     criteria.add(
     Restrictions.or(
-            Restrictions.contains("title", "RFC"),
-            Restrictions.contains("title", "refactor")
+            Restrictions.contains("title", "JCR"),
+            Restrictions.contains("title", "query builder")
         )
     );
     criteria.addOrder(Order.desc("published"));
     criteria.addOrder(Order.asc("topstory"));
     criteria.buildQuery(); // returns a string
-**Generates:** /jcr:root/content/products//element(*,cq:PageContent)
-  [@description and (jcr:contains(@title, 'RFC') or jcr:contains(@title, 'refactor'))]
+**Generates:** /jcr:root/content/products//element(*,nt:unstructured)
+  [@description and (jcr:contains(@title, 'JCR') or jcr:contains(@title, 'query builder'))]
   order by @published descending, @topstorystatus ascending

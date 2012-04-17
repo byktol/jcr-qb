@@ -37,4 +37,4 @@ It's still under development so things are not supposed to work flawlessly just 
     criteria.buildQuery(); // returns a string
 **Generates:** /jcr:root/content/products//element(*,nt:unstructured)
   [@description and (jcr:contains(@title, 'JCR') or jcr:contains(@title, 'query builder'))]
-  order by @published descending, @topstorystatus ascending
+  order by @published descending, @topstory ascending

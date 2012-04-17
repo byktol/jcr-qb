@@ -31,6 +31,6 @@ This is an experimental query builder for the Java Content Repository technology
     criteria.addOrder(Order.desc("published"));
     criteria.addOrder(Order.asc("topstory"));
     criteria.buildQuery(); // returns a string
-**Generates:** /jcr:root/content/nymag//element(*,cq:PageContent)
+**Generates:** /jcr:root/content/products//element(*,cq:PageContent)
   [@description and (jcr:contains(@title, 'RFC') or jcr:contains(@title, 'refactor'))]
   order by @published descending, @topstorystatus ascending

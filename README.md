@@ -1,7 +1,7 @@
 # JCR Query Builder
 This is an experimental query builder for the Java Content Repository technology based on the ideas of Hibernate's Criteria builder. The purpose is to create a dynamic query builder able to switch the JCR query language (namely `XPath`, `SQL`, and `JCR-SQL2`) without changing your implementation. For the time being, `JCR-JQOM` is out of scope because that query language cannot be represented as a string (the reference implementation, Jackrabbit, serializes it as `JCR-SQL2`). 
 
-This project is not affiliated in any ways to Adobe or Day Software, but if you're a client of their CMS platform, you may be interested in their own [Query Builder](http://dev.day.com/docs/en/cq/current/javadoc/com/day/cq/search/QueryBuilder.html).
+This project is not affiliated in any way to Adobe or Day Software, but if you're a client of their CMS platform, you may be interested in their own [Query Builder](http://dev.day.com/docs/en/cq/current/javadoc/com/day/cq/search/QueryBuilder.html).
 
 It's still under development so things are not supposed to work flawlessly just yet.
 

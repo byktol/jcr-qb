@@ -19,7 +19,8 @@ import java.util.List;
  * @since 1.0
  * @author Victor Alvarez
  */
-public interface Prop {
+public interface Prop
+{
 
   /**
    * @return The list of {@link Criterion} used in building the query

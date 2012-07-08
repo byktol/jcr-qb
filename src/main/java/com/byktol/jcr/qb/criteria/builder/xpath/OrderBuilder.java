@@ -34,10 +34,12 @@ public class OrderBuilder
    *          The {@link Order}s that are going to be appended to the query
    * @return A {@link List} of {@link String} to be appended to the query
    */
-  public final List<String> build(final List<Order> orders) {
+  public final List<String> build(final List<Order> orders)
+  {
     final List<String> list = new LinkedList<String>();
 
-    for (Order o : orders) {
+    for (Order o : orders)
+    {
 
       list.add(String.format("%s %s",
         XPathUtils.prependSymbol(o.getPropertyName()), o.getDirection())

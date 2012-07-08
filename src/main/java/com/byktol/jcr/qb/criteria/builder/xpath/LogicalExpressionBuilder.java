@@ -46,7 +46,8 @@ public class LogicalExpressionBuilder
       String.format(" %s ", le.getOp().toString())
     ).skipNulls();
 
-    for (int i = 0; i < criterionArray.length; i++) {
+    for (int i = 0; i < criterionArray.length; i++)
+    {
 
       builtrestrictions.add(context.build(criterionArray[i]));
 

@@ -36,7 +36,8 @@ public class NotExpression
    */
   public NotExpression(final Criterion criterion)
   {
-    if (null == criterion) {
+    if (null == criterion)
+    {
       throw new IllegalArgumentException("criterion cannot be null.");
     }
 

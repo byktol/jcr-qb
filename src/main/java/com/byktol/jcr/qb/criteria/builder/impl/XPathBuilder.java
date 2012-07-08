@@ -37,7 +37,8 @@ public class XPathBuilder
 
   private Prop criteria;
 
-  public XPathBuilder(final Prop criteria) {
+  public XPathBuilder(final Prop criteria)
+  {
     this.criteria = criteria;
   }
 
@@ -50,7 +51,8 @@ public class XPathBuilder
    * @return a valid XPath query string.
    */
   @Override
-  public String buildQuery() {
+  public String buildQuery()
+  {
     final StringBuilder xpath = new StringBuilder();
 
     xpath.append(
@@ -61,19 +63,22 @@ public class XPathBuilder
       )
     );
 
-    if (criteria.getCriterion().size() > 0) {
+    if (criteria.getCriterion().size() > 0)
+    {
 
       final StringBuilder sb = new StringBuilder();
       final Iterator<Criterion> iterator = criteria.getCriterion().iterator();
       sb.append(context.build(iterator.next()));
-      while (iterator.hasNext()) {
+      while (iterator.hasNext())
+      {
         sb.append(' ');
         sb.append(LogicalOperator.AND);
         sb.append(' ');
         sb.append(context.build(iterator.next()));
       }
 
-      if (sb.length() > 0) {
+      if (sb.length() > 0)
+      {
         xpath.append('[');
         xpath.append(sb);
         xpath.append(']');
@@ -81,7 +86,8 @@ public class XPathBuilder
 
     } // end of if
 
-    if (criteria.getOrders().size() > 0) {
+    if (criteria.getOrders().size() > 0)
+    {
       xpath.append(" order by ");
       xpath.append(
         Joiner.on(", ").skipNulls().join(
@@ -105,7 +111,8 @@ public class XPathBuilder
    *
    * @return The XPath element test.
    */
-  protected final String buildElementTest() {
+  protected final String buildElementTest()
+  {
     String nt = criteria.getNodeName();
 
     if (Strings.isNullOrEmpty(criteria.getNodeName()))

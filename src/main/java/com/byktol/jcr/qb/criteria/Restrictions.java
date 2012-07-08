@@ -239,7 +239,8 @@ public final class Restrictions
    *
    * @return A new disjunction.
    */
-  public static Junction disjunction() {
+  public static Junction disjunction()
+  {
     return new Junction(LogicalOperator.OR);
   }
 }

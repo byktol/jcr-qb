@@ -19,14 +19,16 @@ package com.byktol.jcr.qb.criteria.operators;
  * @since 1.0
  * @author Victor Alvarez
  */
-public enum LogicalOperator {
+public enum LogicalOperator
+{
   /** Logical AND operator. */
   AND,
   /** Logical OR operator. */
   OR;
 
   @Override
-  public String toString() {
+  public String toString()
+  {
     return super.toString().toLowerCase();
   }
 }

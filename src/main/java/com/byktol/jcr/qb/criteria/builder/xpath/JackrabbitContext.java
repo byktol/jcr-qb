@@ -53,10 +53,12 @@ public class JackrabbitContext
    *          An object inheriting from {@link Criterion}
    * @return The result of calling a builder method or an empty string
    */
-  public final String build(final Criterion criterion) {
+  public final String build(final Criterion criterion)
+  {
     final XPathCriterionBuilder builder = map.get(criterion.getClass());
 
-    if (null == builder) {
+    if (null == builder)
+    {
       return "";
     }
 

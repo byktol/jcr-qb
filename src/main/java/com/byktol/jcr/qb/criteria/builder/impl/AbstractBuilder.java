@@ -28,7 +28,8 @@ import com.byktol.jcr.qb.criteria.Restrictions;
  *
  * @author Victor Alvarez
  */
-public abstract class AbstractBuilder {
+public abstract class AbstractBuilder
+{
 
   /**
    * Builds the query based on {@link Restrictions} and {@link Order}.

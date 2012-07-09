@@ -48,7 +48,8 @@ public class Sql2Criteria
   }
 
   @Override
-  public String buildQuery() {
+  public String buildQuery()
+  {
     // TODO Auto-generated method stub
     return null;
   }

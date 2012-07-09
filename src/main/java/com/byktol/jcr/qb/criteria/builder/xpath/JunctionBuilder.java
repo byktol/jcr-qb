@@ -52,7 +52,8 @@ public class JunctionBuilder
       String.format(" %s ", junction.getOperator().toString())
     ).skipNulls();
 
-    for (Criterion c : criterionArray) {
+    for (Criterion c : criterionArray)
+    {
       builtrestrictions.add(context.build(c));
     } // end of for
 

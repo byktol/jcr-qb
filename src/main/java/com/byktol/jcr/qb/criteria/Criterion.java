@@ -17,6 +17,7 @@ package com.byktol.jcr.qb.criteria;
  * @since 1.0
  * @author Victor Alvarez
  */
-public interface Criterion {
+public interface Criterion
+{
 
 }

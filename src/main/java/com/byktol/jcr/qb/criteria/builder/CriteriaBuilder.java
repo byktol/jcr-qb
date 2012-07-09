@@ -17,7 +17,8 @@ package com.byktol.jcr.qb.criteria.builder;
  * @since 1.0
  * @author Victor Alvarez
  */
-public interface CriteriaBuilder {
+public interface CriteriaBuilder
+{
 
   void buildPath();
   void buildNodeType();
